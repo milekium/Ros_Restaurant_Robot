@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#xterm  -e  " source /opt/ros/kinetic/setup.bash; roscore"  
+
+xterm -e " source ./devel/setup.bash; roslaunch my_robot world.launch" &
+sleep 5
+xterm -e " source ./devel/setup.bash; roslaunch my_robot amcl.launch" &
+sleep  5 
+xterm -e " source ./devel/setup.bash; roslaunch add_markers view_navigation.launch" &
+sleep 5
+#xterm -e " source ./devel/setup.bash; roslaunch my_robot localization.launch" 
+#sleep 5
+xterm -e " source ./devel/setup.bash; roslaunch add_markers add_markers.launch" &
+sleep 5
+xterm -e " source ./devel/setup.bash; roslaunch pick_objects pick_objects.launch" 
+
